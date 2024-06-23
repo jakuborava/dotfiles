@@ -52,6 +52,7 @@ alias scripter="cd ~/Sites/orazi/scripter && php scripter"
 alias get_todos='grep -r '\''TODO'\'' ~/Sites/orazi | grep -v '\''/vendor/\|/node_modules/\|/public/\|/storage/\|Binary file \|.git\|.idea'\'''
 alias check_changes='sh ~/check_for_changes.bsh'
 alias update_software='sh ~/.dotfiles/update_software.sh'
+alias ch_ssh='sh ~/.dotfiles/ch_ssh.sh'
 
 alias temp='cd ~/Temp'
 alias open_temp='cd ~/Temp && open .'
