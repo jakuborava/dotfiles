@@ -2,26 +2,24 @@
 alias copyssh="pbcopy < $HOME/.ssh/id_ed25519.pub"
 alias reloadshell="source $HOME/.zshrc"
 alias reloaddns="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
-alias ll="/opt/homebrew/opt/coreutils/libexec/gnubin/ls -AhlFo --color --group-directories-first"
-alias phpstorm='open -a /Applications/PhpStorm.app "`pwd`"'
-alias shrug="echo '¯\_(ツ)_/¯' | pbcopy"
 alias c="clear"
-alias compile="commit 'compile'"
-alias version="commit 'version'"
+#ssh
+alias ssh_lla04="ssh -o 'IdentitiesOnly yes' -i ~/.ssh/vh_lla04.pem root@lla04.vas-server.cz"
+alias ssh_tle05="ssh -o 'IdentitiesOnly yes' -i ~/.ssh/vh_tle05.pem root@tle05.vas-server.cz"
+alias ssh_vou01="ssh -o 'IdentitiesOnly yes' -i ~/.ssh/vh_vou01.pem root@vou01.vas-server.cz"
+alias ssh_etu05="ssh -o 'IdentitiesOnly yes' -i ~/.ssh/vh_etu05.pem root@etu05.vas-server.cz"
 
 # Directories
 alias dotfiles="cd $DOTFILES"
 alias library="cd $HOME/Library"
 alias sites="cd $HOME/Sites"
-alias lara="sites && cd laravel/"
-alias docs="lara && cd docs/"
+alias orazi="cd $HOME/Sites/orazi"
 
 # Laravel
 alias a="php artisan"
 alias fresh="php artisan migrate:fresh --seed"
 alias tinker="php artisan tinker"
-alias seed="php artisan db:seed"
-alias serve="php artisan serve"
+alias horizon="php artisan horizon:watch"
 
 # PHP
 alias cfresh="rm -rf vendor/ composer.lock && composer i"
@@ -30,12 +28,6 @@ alias composer="php -d memory_limit=-1 /opt/homebrew/bin/composer"
 # JS
 alias nfresh="rm -rf node_modules/ package-lock.json && npm install"
 alias watch="npm run watch"
-
-# Docker
-alias docker-composer="docker-compose"
-
-# SQL Server
-alias mssql="docker run -e ACCEPT_EULA=Y -e SA_PASSWORD=LaravelWow1986! -p 1433:1433 mcr.microsoft.com/mssql/server:2017-latest"
 
 # Git
 alias gst="git status"
@@ -54,3 +46,13 @@ alias resolve="git add . && git commit --no-edit"
 alias stash="git stash -u"
 alias unstage="git restore --staged ."
 alias wip="commit wip"
+
+#etc
+alias scripter="cd ~/Sites/orazi/scripter && php scripter"
+alias get_todos='grep -r '\''TODO'\'' ~/Sites/orazi | grep -v '\''/vendor/\|/node_modules/\|/public/\|/storage/\|Binary file \|.git\|.idea'\'''
+alias check_changes='sh ~/check_for_changes.bsh'
+alias update_software='sh ~/.dotfiles/update_software.sh'
+
+alias temp='cd ~/Temp'
+alias open_temp='cd ~/Temp && open .'
+alias temp_path='~/Temp'

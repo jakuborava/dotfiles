@@ -24,16 +24,17 @@ brew update
 
 # Install all our dependencies with bundle (See Brewfile)
 brew tap homebrew/bundle
-brew bundle --file $DOTFILES/Brewfile
+brew bundle --file $HOME/.dotfiles/Brewfile
 
 # Set default MySQL root password and auth type
+brew services start mysql
 mysql -u root -e "ALTER USER root@localhost IDENTIFIED WITH mysql_native_password BY 'password'; FLUSH PRIVILEGES;"
 
 # Install PHP extensions with PECL
-pecl install imagick redis swoole
+pecl install imagick redis
 
 # Install global Composer packages
-/usr/local/bin/composer global require laravel/installer laravel/valet beyondcode/expose spatie/global-ray
+/usr/local/bin/composer global require laravel/installer laravel/valet beyondcode/expose spatie/global-ray laravel-zero/installer
 
 # Install Laravel Valet
 $HOME/.composer/vendor/bin/valet install
@@ -45,14 +46,14 @@ $HOME/.composer/vendor/bin/global-ray install
 mkdir $HOME/Sites
 
 # Create sites subdirectories
-mkdir $HOME/Sites/blade-ui-kit
-mkdir $HOME/Sites/laravel
+mkdir $HOME/Sites/personal
+mkdir $HOME/Sites/orazi
 
 # Clone Github repositories
-$DOTFILES/clone.sh
+$HOME/.dotfiles/clone.sh
 
 # Symlink the Mackup config file to the home directory
-ln -s $DOTFILES/.mackup.cfg $HOME/.mackup.cfg
+# ln -s $DOTFILES/.mackup.cfg $HOME/.mackup.cfg
 
 # Set macOS preferences - we will run this last because this will reload the shell
-source $DOTFILES/.macos
+# source $DOTFILES/.macos
